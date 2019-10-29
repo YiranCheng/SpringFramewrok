@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f7e5f73a-aded-4fb7-b238-f54e1d4517e9" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/gupao/edu/vip/study/framework/beans/config/MyBeanPostProcessor.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/gupao/edu/vip/study/framework/context/MyApplicationContext.java" afterPath="$PROJECT_DIR$/src/main/java/com/gupao/edu/vip/study/framework/context/MyApplicationContext.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -442,12 +439,20 @@
       <workItem from="1571831784941" duration="678000" />
       <workItem from="1572246488302" duration="332000" />
       <workItem from="1572246860376" duration="5844000" />
-      <workItem from="1572259565681" duration="7758000" />
+      <workItem from="1572259565681" duration="7782000" />
     </task>
+    <task id="LOCAL-00001" summary="DI">
+      <created>1572340673207</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1572340673207</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14612000" />
+    <option name="totallyTimeSpent" value="14636000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -520,6 +525,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="DI" />
+    <option name="LAST_COMMIT_MESSAGE" value="DI" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
