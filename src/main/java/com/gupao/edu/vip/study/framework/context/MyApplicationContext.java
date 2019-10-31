@@ -64,8 +64,9 @@ public class MyApplicationContext extends MyDefaultListableBeanFactory implement
 
     private void doRegisterBeanDefinition(List<MyBeanDefinition> beanDefinitions) throws Exception {
         for (MyBeanDefinition beanDefinition : beanDefinitions) {
-            if (super.beanDefinitionMap.containsKey(beanDefinition.getFactoryBeanName())){
-                throw new Exception("The " + beanDefinition.getFactoryBeanName() + " is exist");
+            String key = beanDefinition.getFactoryBeanName();
+            if (super.beanDefinitionMap.containsKey(key)){
+                super.beanDefinitionMap.put(beanDefinition.getBeanClassName(),beanDefinition);
             }
             super.beanDefinitionMap.put(beanDefinition.getFactoryBeanName(),beanDefinition);
         }
@@ -80,7 +81,7 @@ public class MyApplicationContext extends MyDefaultListableBeanFactory implement
 
         postProcessor.postProcessBeforeInitialization(instance, beanName);
 
-        instance = instantiateBean(beanName, beanDefinition);
+        instance = instantiateBean(beanDefinition);
 
         MyBeanWrapper beanWrapper = new MyBeanWrapper(instance);
         
@@ -88,11 +89,11 @@ public class MyApplicationContext extends MyDefaultListableBeanFactory implement
         
         postProcessor.postProcessAfterInitialization(instance, beanName);
         
-        populateBean(beanName,beanDefinition,beanWrapper);
+        populateBean(beanWrapper);
         return factoryBeanInstanceCache.get(beanName).getWrappedInstance();
     }
 
-    private void populateBean(String beanName, MyBeanDefinition beanDefinition, MyBeanWrapper beanWrapper) {
+    private void populateBean(MyBeanWrapper beanWrapper) {
         Object instance = beanWrapper.getWrappedInstance();
         Class<?> clazz = beanWrapper.getWrappedClass();
 
@@ -124,15 +125,16 @@ public class MyApplicationContext extends MyDefaultListableBeanFactory implement
         }
     }
 
-    private Object instantiateBean(String beanName, MyBeanDefinition beanDefinition) {
+    private Object instantiateBean(MyBeanDefinition beanDefinition) {
         String className = beanDefinition.getBeanClassName();
+        String beanName = beanDefinition.getFactoryBeanName();
         
         Object instance = null;
         try{
             if (singleObjects.containsKey(className)) {
                 instance = this.singleObjects.get(className);
             }else {
-                Class<?> clazz = Class.forName(className);
+                Class<?> clazz = Class.forName(beanName);
                 instance = clazz.newInstance();
                 this.singleObjects.put(className,instance);
                 this.singleObjects.put(beanName,instance);

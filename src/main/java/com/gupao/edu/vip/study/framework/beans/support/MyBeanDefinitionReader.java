@@ -40,7 +40,7 @@ public class MyBeanDefinitionReader {
     }
 
     private void doScanner(String scanPackage) {
-        URL url = this.getClass().getClassLoader().getResource("/" + scanPackage.replaceAll("\\.","/"));
+        URL url = this.getClass().getClassLoader().getResource(scanPackage.replaceAll("\\.","/"));
         if (null == url){return;}
         File classPath = new File(url.getFile());
         for (File file : classPath.listFiles()) {
